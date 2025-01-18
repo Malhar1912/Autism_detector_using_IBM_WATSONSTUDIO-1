@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Autism Screening Test</title>
+  <style>
+   /* General Body Style */
+body {
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(to right, #a8c0ff, #3f4b8f); /* Soft gradient background */
+  background-size: cover;
+  background-attachment: fixed;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+}
+
+/* Centering the content container */
+.container {
+  width: 80%;
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 30px;
+  background-color: rgba(255, 255, 255, 0.9); /* White with slight transparency */
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+header {
+  margin-bottom: 20px;
+}
+
+h1 {
+  color: #0047ab;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+label {
+  font-size: 1.1rem;
+  color: #333;
+  margin-bottom: 10px;
+  display: block;
+  text-align: left;
+  margin-left: 20px;
+}
+
+input, select, button {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+input:focus, select:focus, button:focus {
+  outline: none;
+  border-color: #0047ab;
+}
+
+button {
+  background-color: #0047ab;
+  color: #fff;
+  font-size: 1.2rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+}
+
+button:hover {
+  background-color: #003580;
+}
+
+a {
+  color: #0047ab;
+  text-decoration: none;
+  font-size: 1rem;
+  display: inline-block;
+  margin-top: 20px;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.question-container {
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+.question-container select {
+  margin-left: 10px;
+}
+
+.nav-buttons {
+  margin-top: 20px;
+}
+
+.nav-buttons button {
+  background-color: #ff6600;
+  color: #fff;
+  font-size: 1.2rem;
+  width: 48%;
+  margin: 10px 1%;
+}
+
+.nav-buttons button:hover {
+  background-color: #cc5200;
+}
+
+.form-footer {
+  margin-top: 30px;
+}
+
+/* Soft background image with opacity */
+.background-image {
+  background-image: url('https://images.unsplash.com/photo-1496707404007-f3f4b50611d3?crop=entropy&cs=tinysrgb&fit=max&ixid=MnwzNjYxOXwwfDF8c2VhY2h8Mnx8fGF1dGlzdGljJTIwdGVzdHxlbnwwfDF8fHx8&ixlib=rb-1.2.1&q=80&w=1080');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  height: 100vh;
+  filter: brightness(80%);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+}
+
+  </style>
+</head>
+<body>
+  <section class="background-image"></section>
+
+  <main class="container">
+    <header>
+      <h1>Autism Screening Questionnaire</h1>
+    </header>
+
+    <form action="/predict" method="POST">
+      <!-- Page 1: User ID and Screening Questions -->
+      <section id="page1">
+        <label for="id">User ID:</label>
+        <input type="number" id="id" name="id" placeholder="Enter unique ID" required>
+
+        <label for="A1_Score">1. Does your child often not look at you when you call their name?</label>
+        <select id="A1_Score" name="A1_Score" required>
+          <option value="1">Yes</option>
+          <option value="0">No</option>
+        </select>
+
+        <label for="A2_Score">2. Does your child avoid or reject physical contact?</label>
+        <select id="A2_Score" name="A2_Score" required>
+          <option value="1">Yes</option>
+          <option value="0">No</option>
+        </select>
+
+        <label for="A3_Score">3. Does your child respond to their name when called?</label>
+        <select id="A3_Score" name="A3_Score" required>
+          <option value="1">Yes</option>
+          <option value="0">No</option>
+        </select>
+
+        <label for="A4_Score">4. Does your child engage in repetitive behaviors (e.g., hand-flapping, rocking)?</label>
+        <select id="A4_Score" name="A4_Score" required>
+          <option value="1">Yes</option>
+          <option value="0">No</option>
+        </select>
+
+        <label for="A5_Score">5. Does your child avoid eye contact?</label>
+        <select id="A5_Score" name="A5_Score" required>
+          <option value="1">Yes</option>
+          <option value="0">No</option>
+        </select>
+
+        <label for="A6_Score">6. Does your child have trouble understanding social cues?</label>
+        <select id="A6_Score" name="A6_Score" required>
+          <option value="1">Yes</option>
+          <option value="0">No</option>
+        </select>
+
+        <label for="A7_Score">7. Does your child show interest in other children?</label>
+        <select id="A7_Score" name="A7_Score" required>
+          <option value="1">Yes</option>
+          <option value="0">No</option>
+        </select>
+
+        <label for="A8_Score">8. Does your child engage in pretend play (e.g., pretending a block is a car)?</label>
+        <select id="A8_Score" name="A8_Score" required>
+          <option value="1">Yes</option>
+          <option value="0">No</option>
+        </select>
+
+        <label for="A9_Score">9. Does your child make unusual movements or sounds?</label>
+        <select id="A9_Score" name="A9_Score" required>
+          <option value="1">Yes</option>
+          <option value="0">No</option>
+        </select>
+
+        <label for="A10_Score">10. Does your child get upset with changes in routine?</label>
+        <select id="A10_Score" name="A10_Score" required>
+          <option value="1">Yes</option>
+          <option value="0">No</option>
+        </select>
+
+        <section class="nav-buttons">
+          <button type="button" onclick="nextPage()">Next: Personal Information</button>
+        </section>
+      </section>
+
+      <!-- Page 2: Additional Fields -->
+      <section id="page2" style="display: none;">
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" required>
+
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender" required>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
+
+        <label for="ethnicity">Ethnicity:</label>
+        <input type="text" id="ethnicity" name="ethnicity" placeholder="Enter ethnicity" required>
+
+        <label for="jundice">Jaundice (Yellowing of the Skin/Eyes):</label>
+        <select id="jundice" name="jundice" required>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+
+        <label for="country_of_res">Country of Residence:</label>
+        <input type="text" id="country_of_res" name="country_of_res" placeholder="Enter country of residence" required>
+
+        <label for="used_app_before">Used Autism Screening App Before:</label>
+        <select id="used_app_before" name="used_app_before" required>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+
+        <label for="result">Result (Initial Assessment):</label>
+        <input type="number" id="result" name="result" placeholder="Enter initial result (0 or 1)" required>
+
+        <label for="age_desc">Age Description:</label>
+        <input type="text" id="age_desc" name="age_desc" placeholder="Enter age description (e.g., child, adolescent)" required>
+
+        <label for="relation">Relation to the Patient:</label>
+        <input type="text" id="relation" name="relation" placeholder="Enter your relation to the patient" required>
+
+        <label for="class_asd">Class/ASD (Autism Diagnosis):</label>
+        <input type="text" id="class_asd" name="class_asd" placeholder="Enter class (Yes/No)" required>
+
+        <div class="form-footer">
+          <button type="submit">Submit</button>
+        </div>
+      </section>
+    </form>
+  </main>
+
+  <script>
+    function nextPage() {
+      document.getElementById("page1").style.display = "none";
+      document.getElementById("page2").style.display = "block";
+    }
+  </script>
+</body>
+</html>
