@@ -156,7 +156,7 @@ ul li {
         <h2>Prediction: <strong>{{ prediction }}</strong></h2>
         <div class="result-message">
           <!-- Conditional Content based on prediction -->
-          {% if prediction == "Yes" %}
+          {% if prediction == "yes" %}
             <p><span class="positive-result">Your results indicate a higher likelihood of autism-related characteristics.</span></p>
             <p>It is essential to consult with a healthcare professional for a more accurate assessment and potential diagnosis.</p>
             <p><strong>How to Proceed:</strong></p>
@@ -165,7 +165,7 @@ ul li {
               <li>Consider early intervention programs, which can significantly improve developmental outcomes.</li>
               <li>Join support groups for families with children on the autism spectrum to connect and learn from others.</li>
             </ul>
-          {% elif prediction == "No" %}
+          {% elif prediction == "no" %}
             <p><span class="negative-result">The prediction does not indicate autism-related traits.</span></p>
             <p>While your child may not show signs of autism, it's still important to monitor their development. If you notice any changes or new challenges, don't hesitate to consult a healthcare provider.</p>
             <p><strong>What to do Next:</strong></p>
