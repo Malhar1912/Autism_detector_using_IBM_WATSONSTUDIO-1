@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prediction Result</title>
+  <style>
+    /* General Body Style */
+body {
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(to right, #a8c0ff, #3f4b8f); /* Soft gradient background */
+  background-size: cover;
+  background-attachment: fixed;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+}
+
+/* Result Container */
+.result-container {
+  width: 80%;
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 30px;
+  background-color: rgba(255, 255, 255, 0.9); /* White with slight transparency */
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+header {
+  margin-bottom: 20px;
+}
+
+h1 {
+  color: #0047ab;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.result-summary {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+/* Result Section */
+.result-details {
+  background-color: #f0f8ff;
+  padding: 30px;
+  border-radius: 8px;
+  width: 100%;
+  text-align: left;
+  box-sizing: border-box;
+}
+
+.prediction-result h2 {
+  font-size: 1.8rem;
+  color: #0047ab;
+  margin-bottom: 20px;
+}
+
+.result-message p {
+  font-size: 1.2rem;
+  color: #333;
+  line-height: 1.6;
+}
+
+.positive-result {
+  color: #d9534f;
+  font-weight: bold;
+}
+
+.negative-result {
+  color: #5bc0de;
+  font-weight: bold;
+}
+
+.neutral-result {
+  color: #ffc107;
+  font-weight: bold;
+}
+
+ul {
+  list-style-type: disc;
+  margin-left: 20px;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+ul li {
+  margin-bottom: 15px;
+}
+
+/* Buttons */
+.action-buttons {
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.back-btn, .contact-btn {
+  padding: 15px 30px;
+  background-color: #0047ab;
+  color: #fff;
+  font-size: 1.2rem;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background-color 0.3s;
+  display: inline-block;
+  width: 45%;
+}
+
+.back-btn:hover, .contact-btn:hover {
+  background-color: #003580;
+}
+
+.contact-btn {
+  background-color: #5bc0de;
+}
+
+.contact-btn:hover {
+  background-color: #31b0d5;
+}
+
+/* Soft background image */
+.background-image {
+  background-image: url('https://images.unsplash.com/photo-1496707404007-f3f4b50611d3?crop=entropy&cs=tinysrgb&fit=max&ixid=MnwzNjYxOXwwfDF8c2VhY2h8Mnx8fGF1dGlzdGljJTIwdGVzdHxlbnwwfDF8fHx8&ixlib=rb-1.2.1&q=80&w=1080');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  height: 100vh;
+  filter: brightness(80%);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+}
+
+  </style>
+</head>
+<body>
+  <!-- Background section -->
+  <section class="background-image"></section>
+
+  <main class="result-container">
+    <header>
+      <h1>Prediction Result</h1>
+      <p class="result-summary">Based on the responses provided, the model has given the following prediction.</p>
+    </header>
+
+    <section class="result-details">
+      <div class="prediction-result">
+        <h2>Prediction: <strong>{{ prediction }}</strong></h2>
+        <div class="result-message">
+          <!-- Conditional Content based on prediction -->
+          {% if prediction == "Yes" %}
+            <p><span class="positive-result">Your results indicate a higher likelihood of autism-related characteristics.</span></p>
+            <p>It is essential to consult with a healthcare professional for a more accurate assessment and potential diagnosis.</p>
+            <p><strong>How to Proceed:</strong></p>
+            <ul>
+              <li>Seek a professional diagnosis from a pediatrician or psychologist.</li>
+              <li>Consider early intervention programs, which can significantly improve developmental outcomes.</li>
+              <li>Join support groups for families with children on the autism spectrum to connect and learn from others.</li>
+            </ul>
+          {% elif prediction == "No" %}
+            <p><span class="negative-result">The prediction does not indicate autism-related traits.</span></p>
+            <p>While your child may not show signs of autism, it's still important to monitor their development. If you notice any changes or new challenges, don't hesitate to consult a healthcare provider.</p>
+            <p><strong>What to do Next:</strong></p>
+            <ul>
+              <li>Continue to monitor your child's development.</li>
+              <li>If any concerns arise later, consider a professional evaluation.</li>
+              <li>Keep fostering a supportive and inclusive environment for your child's growth.</li>
+            </ul>
+          {% else %}
+            <p><span class="neutral-result">The model could not make a clear prediction. Please consult a healthcare professional for further assessment.</span></p>
+          {% endif %}
+        </div>
+      </div>
+    </section>
+
+    <div class="action-buttons">
+      <a href="/" class="back-btn">Go Back</a>
+      <a href="/contact" class="contact-btn">Contact Us for More Help</a>
+    </div>
+
+  </main>
+
+  <script>
+    // Optional JavaScript for any interactive functionality can go here
+  </script>
+</body>
+</html>
